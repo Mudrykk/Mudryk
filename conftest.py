@@ -1,19 +1,6 @@
 import pytest
 from modules.api.clients.github import GitHub
-
-
-class User:
-    def __init__(self) -> None:
-        self.name = None
-        self.second_name = None
-
-    def create(self):
-        self.name = "Yurii"
-        self.second_name = "Mudryk"
-
-    def remove(self):
-        self.name = ""
-        self.second_name = ""
+from modules.api.clients.users_data import User
 
 
 @pytest.fixture
