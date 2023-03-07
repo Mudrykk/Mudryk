@@ -7,10 +7,10 @@ from modules.ui.page_objects.sign_in_page import SignInPage
 
 @pytest.fixture
 def user():
-    user = User()
+    newUser = User()
     user.create()
 
-    yield user
+    yield newUser
 
     user.remove()
 

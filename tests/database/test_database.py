@@ -3,17 +3,20 @@ import pytest
 
 @pytest.mark.database
 def test_database_connection(database_api):
+    """A test for returns the version of the database."""
     database_api.test_connection()
 
 
 @pytest.mark.database
 def test_check_all_users(database_api):
+    """The test displays all users."""
     users = database_api.get_all_users()
     print(users)
 
 
 @pytest.mark.database
 def test_check_user_yurii(database_api):
+    """A test to verify user data."""
     user = database_api.get_user_address_by_name("Sergii")
 
     assert user[0][0] == "Maydan Nezalezhnosti 1"
@@ -24,6 +27,8 @@ def test_check_user_yurii(database_api):
 
 @pytest.mark.database
 def test_product_qnt_update(database_api):
+    """A test for changing data in the database, and for checking
+    these changes."""
     database_api.update_product_qnt_by_id(1, 25)
     p = database_api.select_product_by_id(1)
 
@@ -32,6 +37,8 @@ def test_product_qnt_update(database_api):
 
 @pytest.mark.database
 def test_product_insert(database_api):
+    """A test for inserting data in the database, and for checking
+    these changes"""
     database_api.insert_product(4, "печиво", "солодке", 30)
     p = database_api.select_product_by_id(4)
 
@@ -40,6 +47,7 @@ def test_product_insert(database_api):
 
 @pytest.mark.database
 def test_delete_product(database_api):
+    """A test to delete data from the database and to verify these changes."""
     database_api.insert_product(99, "test", "data", 999)
     database_api.delete_product_by_id(99)
     r = database_api.select_product_by_id(99)
@@ -49,6 +57,8 @@ def test_delete_product(database_api):
 
 @pytest.mark.database
 def test_detailed_orders(database_api):
+    """A test for combining tables in a database and to verify
+    these changes."""
     orders = database_api.get_detailed_orders()
     print(f"The orders are: {orders}")
 
