@@ -6,13 +6,13 @@ from modules.ui.page_objects.sign_in_page import SignInPage
 
 
 @pytest.fixture
-def user():
-    newUser = User()
-    user.create()
+def newUser():
+    testUser = User()
+    testUser.create()
 
-    yield newUser
+    yield testUser
 
-    user.remove()
+    testUser.remove()
 
 
 @pytest.fixture

@@ -22,7 +22,7 @@ def test_repo_can_be_found(github_api):
     """A test to verify an existing repository."""
     r = github_api.search_repo("become-qa-auto")
 
-    assert r["total_count"] == 32
+    assert r["total_count"] == 36
 
 
 @pytest.mark.api
